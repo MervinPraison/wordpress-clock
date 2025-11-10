@@ -1,14 +1,14 @@
 <?php
 /*
-Plugin Name: WordPress Clock
-Plugin URI: https://mer.vin/wordpress-clock
+Plugin Name: Live Clock Widget
+Plugin URI: https://mer.vin/live-clock-widget
 Description: Displays a modern, responsive analog or digital clock using JavaScript. Use shortcode [wpclock] or widget.
-Version: 2.0
+Version: 2.1
 Author: Mervin Praison
 Author URI: https://mer.vin
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: wordpress-clock
+Text Domain: live-clock-widget
 Domain Path: /languages
 */
 
@@ -68,9 +68,9 @@ class WPClock_Widget extends WP_Widget {
 	public function __construct() {
 		parent::__construct(
 			'wpclock_widget',
-			__('WordPress Clock', 'wordpress-clock'),
+			__('Live Clock Widget', 'live-clock-widget'),
 			array(
-				'description' => __('Displays a modern analog or digital clock', 'wordpress-clock'),
+				'description' => __('Displays a modern analog or digital clock', 'live-clock-widget'),
 				'classname' => 'wpclock-widget'
 			)
 		);
@@ -98,7 +98,7 @@ class WPClock_Widget extends WP_Widget {
 		?>
 		<p>
 			<label for="<?php echo esc_attr($this->get_field_id('title')); ?>">
-				<?php esc_html_e('Title:', 'wordpress-clock'); ?>
+				<?php esc_html_e('Title:', 'live-clock-widget'); ?>
 			</label>
 			<input class="widefat" id="<?php echo esc_attr($this->get_field_id('title')); ?>" 
 			       name="<?php echo esc_attr($this->get_field_name('title')); ?>" 
@@ -106,17 +106,17 @@ class WPClock_Widget extends WP_Widget {
 		</p>
 		<p>
 			<label for="<?php echo esc_attr($this->get_field_id('type')); ?>">
-				<?php esc_html_e('Clock Type:', 'wordpress-clock'); ?>
+				<?php esc_html_e('Clock Type:', 'live-clock-widget'); ?>
 			</label>
 			<select class="widefat" id="<?php echo esc_attr($this->get_field_id('type')); ?>" 
 			        name="<?php echo esc_attr($this->get_field_name('type')); ?>">
-				<option value="analog" <?php selected($type, 'analog'); ?>><?php esc_html_e('Analog', 'wordpress-clock'); ?></option>
-				<option value="digital" <?php selected($type, 'digital'); ?>><?php esc_html_e('Digital', 'wordpress-clock'); ?></option>
+				<option value="analog" <?php selected($type, 'analog'); ?>><?php esc_html_e('Analog', 'live-clock-widget'); ?></option>
+				<option value="digital" <?php selected($type, 'digital'); ?>><?php esc_html_e('Digital', 'live-clock-widget'); ?></option>
 			</select>
 		</p>
 		<p>
 			<label for="<?php echo esc_attr($this->get_field_id('size')); ?>">
-				<?php esc_html_e('Size (px):', 'wordpress-clock'); ?>
+				<?php esc_html_e('Size (px):', 'live-clock-widget'); ?>
 			</label>
 			<input class="widefat" id="<?php echo esc_attr($this->get_field_id('size')); ?>" 
 			       name="<?php echo esc_attr($this->get_field_name('size')); ?>" 

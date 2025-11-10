@@ -1,18 +1,18 @@
-=== WordPress Clock ===
+=== Live Clock Widget ===
 Contributors: mervinpraison
 Donate link: https://mer.vin
 Tags: clock, widget, shortcode, analog, digital
 Requires at least: 4.0
 Tested up to: 6.8
-Stable tag: 2.0
+Stable tag: 2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Display a modern, responsive analog or digital clock on your WordPress site using shortcode or widget.
+Display a modern, responsive analog or digital clock using shortcode or widget. No Flash, pure JavaScript.
 
 == Description ==
 
-WordPress Clock provides a beautiful, modern clock display for your website. Choose between analog and digital styles, customize the size, and display it anywhere using a shortcode or widget.
+Live Clock Widget provides a beautiful, modern clock display for your website. Choose between analog and digital styles, customize the size, and display it anywhere using a shortcode or widget.
 
 **Key Features:**
 
@@ -82,6 +82,11 @@ Absolutely! The clock automatically adjusts to different screen sizes.
 
 == Changelog ==
 
+= 2.1 =
+* **CRITICAL:** Fixed trademark violation - renamed from "WordPress Clock" to "Live Clock Widget"
+* Updated all text domains to 'live-clock-widget'
+* Updated plugin URI and author URI
+
 = 2.0 =
 * **MAJOR UPDATE:** Complete rewrite from scratch
 * Security: Removed Flash dependency (security risk)
@@ -108,6 +113,9 @@ Absolutely! The clock automatically adjusts to different screen sizes.
 * Initial release with Flash clock
 
 == Upgrade Notice ==
+
+= 2.1 =
+CRITICAL: Plugin renamed to comply with WordPress trademark guidelines. Update immediately to avoid closure.
 
 = 2.0 =
 CRITICAL UPDATE: Flash removed for security. Complete rewrite with modern JavaScript. All users must update immediately.
