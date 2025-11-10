@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Live Clock Widget
-Plugin URI: https://mer.vin/live-clock-widget
+Plugin URI: https://github.com/MervinPraison/wordpress-clock
 Description: Displays a modern, responsive analog or digital clock using JavaScript. Use shortcode [wpclock] or widget.
-Version: 2.1
+Version: 2.2
 Author: Mervin Praison
 Author URI: https://mer.vin
 License: GPLv2 or later

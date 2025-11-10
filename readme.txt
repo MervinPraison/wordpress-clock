@@ -4,7 +4,7 @@ Donate link: https://mer.vin
 Tags: clock, widget, shortcode, analog, digital
 Requires at least: 4.0
 Tested up to: 6.8
-Stable tag: 2.1
+Stable tag: 2.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -81,6 +81,11 @@ Absolutely! The clock automatically adjusts to different screen sizes.
 4. Shortcode usage
 
 == Changelog ==
+
+= 2.2 =
+* Updated Plugin URI to GitHub repository
+* All links now point to https://github.com/MervinPraison/wordpress-clock
+* Removed references to mervin.info domain
 
 = 2.1 =
 * **CRITICAL:** Fixed trademark violation - renamed from "WordPress Clock" to "Live Clock Widget"
