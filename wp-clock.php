@@ -3,13 +3,12 @@
 Plugin Name: Live Clock Widget
 Plugin URI: https://github.com/MervinPraison/wordpress-clock
 Description: Displays a modern, responsive analog or digital clock using JavaScript. Use shortcode [wpclock] or widget.
-Version: 2.2
+Version: 2.3
 Author: Mervin Praison
 Author URI: https://mer.vin
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: live-clock-widget
-Domain Path: /languages
+Text Domain: wordpress-clock
 */
 
 // Enqueue scripts and styles
@@ -20,7 +19,7 @@ function wpclock_enqueue_assets() {
 add_action('wp_enqueue_scripts', 'wpclock_enqueue_assets');
 
 // Shortcode function
-function wordclock($atts) {
+function wpclock_shortcode($atts) {
 	$atts = shortcode_atts(array(
 		'type' => 'analog', // analog or digital
 		'size' => '200',
@@ -61,33 +60,37 @@ function wordclock($atts) {
 	return ob_get_clean();
 }
 
-add_shortcode('wpclock', 'wordclock');
+add_shortcode('wpclock', 'wpclock_shortcode');
 
 // Widget class
 class WPClock_Widget extends WP_Widget {
 	public function __construct() {
 		parent::__construct(
 			'wpclock_widget',
-			__('Live Clock Widget', 'live-clock-widget'),
+			__('Live Clock Widget', 'wordpress-clock'),
 			array(
-				'description' => __('Displays a modern analog or digital clock', 'live-clock-widget'),
+				'description' => __('Displays a modern analog or digital clock', 'wordpress-clock'),
 				'classname' => 'wpclock-widget'
 			)
 		);
 	}
 	
 	public function widget($args, $instance) {
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $args provided by WordPress core
 		echo $args['before_widget'];
 		
 		if (!empty($instance['title'])) {
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $args provided by WordPress core
 			echo $args['before_title'] . esc_html($instance['title']) . $args['after_title'];
 		}
 		
 		$type = !empty($instance['type']) ? $instance['type'] : 'analog';
 		$size = !empty($instance['size']) ? absint($instance['size']) : 200;
 		
-		echo wordclock(array('type' => $type, 'size' => $size));
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- wpclock_shortcode() returns escaped output
+		echo wpclock_shortcode(array('type' => $type, 'size' => $size));
 		
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $args provided by WordPress core
 		echo $args['after_widget'];
 	}
 	
@@ -98,7 +101,7 @@ class WPClock_Widget extends WP_Widget {
 		?>
 		<p>
 			<label for="<?php echo esc_attr($this->get_field_id('title')); ?>">
-				<?php esc_html_e('Title:', 'live-clock-widget'); ?>
+				<?php esc_html_e('Title:', 'wordpress-clock'); ?>
 			</label>
 			<input class="widefat" id="<?php echo esc_attr($this->get_field_id('title')); ?>" 
 			       name="<?php echo esc_attr($this->get_field_name('title')); ?>" 
@@ -106,17 +109,17 @@ class WPClock_Widget extends WP_Widget {
 		</p>
 		<p>
 			<label for="<?php echo esc_attr($this->get_field_id('type')); ?>">
-				<?php esc_html_e('Clock Type:', 'live-clock-widget'); ?>
+				<?php esc_html_e('Clock Type:', 'wordpress-clock'); ?>
 			</label>
 			<select class="widefat" id="<?php echo esc_attr($this->get_field_id('type')); ?>" 
 			        name="<?php echo esc_attr($this->get_field_name('type')); ?>">
-				<option value="analog" <?php selected($type, 'analog'); ?>><?php esc_html_e('Analog', 'live-clock-widget'); ?></option>
-				<option value="digital" <?php selected($type, 'digital'); ?>><?php esc_html_e('Digital', 'live-clock-widget'); ?></option>
+				<option value="analog" <?php selected($type, 'analog'); ?>><?php esc_html_e('Analog', 'wordpress-clock'); ?></option>
+				<option value="digital" <?php selected($type, 'digital'); ?>><?php esc_html_e('Digital', 'wordpress-clock'); ?></option>
 			</select>
 		</p>
 		<p>
 			<label for="<?php echo esc_attr($this->get_field_id('size')); ?>">
-				<?php esc_html_e('Size (px):', 'live-clock-widget'); ?>
+				<?php esc_html_e('Size (px):', 'wordpress-clock'); ?>
 			</label>
 			<input class="widefat" id="<?php echo esc_attr($this->get_field_id('size')); ?>" 
 			       name="<?php echo esc_attr($this->get_field_name('size')); ?>" 

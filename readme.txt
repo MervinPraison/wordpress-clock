@@ -4,7 +4,7 @@ Donate link: https://mer.vin
 Tags: clock, widget, shortcode, analog, digital
 Requires at least: 4.0
 Tested up to: 6.8
-Stable tag: 2.2
+Stable tag: 2.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -81,6 +81,12 @@ Absolutely! The clock automatically adjusts to different screen sizes.
 4. Shortcode usage
 
 == Changelog ==
+
+= 2.3 =
+* **CRITICAL:** Fixed text domain to match plugin slug (wordpress-clock)
+* Removed Domain Path header (not needed for WordPress.org plugins)
+* Removed screenshot-1.png (should be in assets, not plugin)
+* All internationalization now uses correct text domain
 
 = 2.2 =
 * Updated Plugin URI to GitHub repository
