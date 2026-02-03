@@ -1,0 +1,31 @@
+name: Deploy to WordPress.org
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run'
+        required: false
+        default: false
+        type: boolean
+  push:
+    tags: ['v*.*.*']
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Get version
+        id: version
+        run: |
+          VERSION=$(grep -m1 "Version:" wp-clock.php | sed 's/.*Version:[[:space:]]*//' | tr -d '[:space:]')
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+      - name: Sync version
+        run: sed -i "s/^Stable tag:.*/Stable tag: ${{ steps.version.outputs.version }}/" readme.txt
+      - name: Deploy
+        if: ${{ !inputs.dry_run }}
+        uses: 10up/action-wordpress-plugin-deploy@stable
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: wordpress-clock
+          VERSION: ${{ steps.version.outputs.version }}
