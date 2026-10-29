@@ -6,7 +6,7 @@ repo_name: MervinPraison/wordpress-clock
 repo_url: https://github.com/MervinPraison/wordpress-clock
 
 theme:
-  name: material
+  name: !ENV [PRAISONAI_THEME, material]
   palette:
     - scheme: slate
       primary: blue
