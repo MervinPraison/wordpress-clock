@@ -1,3 +1,18 @@
+---
+layout: home
+title: Live Clock Widget
+description: Modern analog and digital clock widget for WordPress
+hero:
+  name: Live Clock Widget
+  text: Live Clock Widget
+  tagline: Modern analog and digital clock widget for WordPress
+  actions:
+  - text: Quick start
+    link: getting-started/installation.md
+  - text: View on GitHub
+    link: https://github.com/MervinPraison/wordpress-clock
+    theme: alt
+---
 # Live Clock Widget
 
 Modern analog and digital clock for WordPress.
