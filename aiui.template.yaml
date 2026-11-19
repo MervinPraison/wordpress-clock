@@ -6,8 +6,9 @@ site:
   title: Live Clock Widget
   ui: shadcn
   theme:
-    preset: blue
-    darkMode: true
+    preset: paper
+    radius: md
+    mode: system
   description: Modern analog and digital clock widget for WordPress
 seo:
   siteUrl: https://mervinpraison.github.io/wordpress-clock
